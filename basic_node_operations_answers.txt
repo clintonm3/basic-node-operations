@@ -1,0 +1,115 @@
+QUESTIONS
+
+1. Run the commands sort, wc and uniq on the commands.js file. Explain how they work and what the output was.
+
+A:
+sort - returned the file commands.js in alphabetical order by line.
+OUTPUT:
+done(data);
+if (err) throw err;
+break;
+break;
+commandLibrary.cat(userInputArray.slice(1));
+commandLibrary.echo(userInputArray.slice(1).join(" "));
+const fileName = fullPath[0];
+done(userInput);
+fs.readFile(fileName, (err, data) => {
+});
+case "cat":
+case "echo":
+process.stdout.write('\nprompt > ');
+process.stdout.write(output);
+"cat": function(fullPath) {
+}
+}
+},
+const command = userInputArray[0];
+const userInputArray = userInput.split(" ");
+switch (command) {
+"echo": function(userInput) {
+const commandLibrary = {
+const fs = require("fs");
+function done(output) {
+function evaluateCmd(userInput) {
+module.exports.commandLibrary = commandLibrary;
+module.exports.evaluateCmd = evaluateCmd;
+}
+}
+};
+
+wc - returns newline, word, and byte counts for commands.js
+OUTPUT
+39      73     821 commands.js
+
+uniq - sorted each line in commands.js and removed any line with a duplicate about it.
+OUTPUT:
+const fs = require("fs");
+
+function done(output) {
+    process.stdout.write(output);
+    process.stdout.write('\nprompt > ');
+}
+
+function evaluateCmd(userInput) {
+
+  const userInputArray = userInput.split(" ");
+  const command = userInputArray[0];
+
+  switch (command) {
+     case "echo":
+       commandLibrary.echo(userInputArray.slice(1).join(" "));
+       break;
+     case "cat":
+       commandLibrary.cat(userInputArray.slice(1));
+       break;
+   }
+}
+
+const commandLibrary = {
+"echo": function(userInput) {
+       done(userInput);
+   },
+   "cat": function(fullPath) {
+       const fileName = fullPath[0];
+       fs.readFile(fileName, (err, data) => {
+           if (err) throw err;
+           done(data);
+       });
+   }
+};
+
+module.exports.commandLibrary = commandLibrary;
+module.exports.evaluateCmd = evaluateCmd;
+
+2. Using the pipe (|) connect at least two commands and run it on commands.js. Explain what the output was and why the specific data was outputted.
+
+A: sort commands.js | uniq | wc
+This pipeline command sorts commands.js then removes any lines that are the same as the one above, then returns a count of the lines, words and byte count.
+It returned: 10 fewer lines, 3 fewer words, and 28 fewer characters than wc commands.js
+
+6. Given a string, reverse the order of characters in each word within a sentence while maintaining the original word order and whitespace and return the string. To improve your problem-solving experience, use the suggested functions to solve the problem.
+
+A:
+
+function reverseString(inputString) {
+  var reverseWords = [];
+  var reverseString = '';
+  var splitArray = inputString.split('');
+  splitArray.forEach(word => {
+    reverseWords.push(reverseWords(word));
+  });
+  reverseString = reverseWords.join('');
+  return reversedString;
+}
+
+function reverseWords(word) {
+  var letters = [];
+  var reverseWord = '';
+  for (let i = 0; i < word.length; i++) {
+    letters.push(word[i]);
+  }
+  for (let i = 0; i < word.length; i++) {
+    reverseWord += letters.pop();
+  }
+  return reverseWord;
+}
